@@ -29,7 +29,7 @@ class Store {
   }
 
   saveNotes(notes) {
-    this.write(JSON.stringify(notes));
+    return this.write(JSON.stringify(notes));
   }
 
   addNote(note) {
@@ -42,7 +42,7 @@ class Store {
 
   deleteNote(noteID) {
     return this.getNotes().then((notes) => {
-      const newList = notes.filter((note) => note.id !== note.id);
+      const newList = notes.filter((note) => noteID !== note.id);
 
       this.saveNotes(newList);
     });
